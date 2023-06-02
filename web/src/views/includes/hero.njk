@@ -1,0 +1,57 @@
+<section class="hero s" data-smooth-item="data-smooth-item">
+
+  {# <div class="light-1 light" style="background-image: url(/assets/images/light-1.png)"></div>
+  <div class="light-2 light" style="background-image: url(/assets/images/light-2.png)"></div> #}
+
+  <div class="hero-title t1">
+
+    <div class="t-item">
+      <div class="t-mask" data-split="words">{{title.t1}}</div>
+      {% if title.caption_1 %}
+        <p class="p1 -fluid top is-desktop" data-split="lines,lines">{{title.caption_1}}</p>
+      {% endif %}
+    </div>
+    <div class="t-item">
+      <div class="t-mask" data-split="words">{{title.t2}}</div>
+    </div>
+    <div class="t-item">
+      <div class="t-mask" data-split="words">{{title.t3}}</div>
+    </div>
+    <div class="t-item">
+      <div class="t-mask" data-split="words">{{title.t4}}</div>
+      {% if title.caption_2 %}
+        <p class="p1 -fluid  bottom is-desktop" data-split="lines,lines">{{title.caption_2}}</p>
+      {% endif %}
+    </div>
+
+    {% if title.caption_1 %}
+      <p class="p1 top is-mobile" data-split="lines,lines">{{title.caption_1}}</p>
+    {% endif %}
+
+    {% if title.caption_2 %}
+      <p class="p1 bottom is-mobile" data-split="lines,lines">{{title.caption_2}}</p>
+    {% endif %}
+
+    <h1>{{title.t1}}
+      {{title.t2}}
+      {{title.t3}}
+      {{title.t4}}</h1>
+
+  </div>
+
+  <div class="scroll-down">
+    <div class="scroll-circle">
+      {% include 'scrollSVG.njk' %}
+    </div>
+    <div class="scroll-arrow">
+
+      <svg viewbox="0 0 63 305">
+        <path class="arrow-line" style="fill:none;stroke:#000000;stroke-width:1.5;" d="M31 0,31 304"/>
+        <path class="arrow-left" style="fill:none;stroke:#000000;stroke-width:1.5;" d="M1,269c0,0,29-1,30,35"/>
+        <path class="arrow-right" style="fill:none;stroke:#000000;stroke-width:1.5;" d="M61,269c0,0-29-1-30,35"/>
+      </svg>
+
+    </div>
+  </div>
+
+</section>

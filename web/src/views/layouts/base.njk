@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#ffffff">
+    <title>{{ data.config.seo.title }}
+      -
+      {{ title }}
+      {{ project.title }}</title>
+    {% include 'meta.njk' %}
+    <link
+    rel="stylesheet" href="{% webpackAsset 'style.css' %}">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-BYBCM6ZQPR"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag('js', new Date());
+      gtag('config', 'G-BYBCM6ZQPR');
+    </script>
+  </head>
+  <body>
+    {% include 'icons.njk' %}
+    <main data-router-wrapper="data-router-wrapper">
+      {{ content | safe }}
+    </main>
+    <div class="page-transition"></div>
+    {% set post = data.home %}
+    {% set projects = post.featuredProjects %}
+    <script>
+      Number.prototype.map = function (in_min, in_max, out_min, out_max) {
+        return((this - in_min) * (out_max - out_min)) / (in_max - in_min) + out_min
+      }
+      window.app = {};
+      window.app.preload = {{ projects|dump| safe }};
+    </script>
+    <script src="{% webpackAsset 'main.js' %}"></script>
+  </body>
+  {# {% include 'grid.njk' %} #}
+</html>

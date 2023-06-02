@@ -1,0 +1,83 @@
+/* ==========================================================================
+   Media Queries
+   ========================================================================== */
+
+@mixin media-query($mq) {
+  $breakpoint-found: false;
+
+  // Loop through the list of breakpoints we’ve provided in our settings file.
+  @each $breakpoint in $breakpoints {
+    // Grab the alias and the condition from their respective locations in
+    // the list.
+    $alias: nth($breakpoint, 1);
+    $condition: nth($breakpoint, 2);
+
+    // If the media query we’ve specified has an alias and a condition...
+    @if $mq == $alias and $condition {
+      // ...tell the mixin that we’ve found it...
+      $breakpoint-found: true;
+
+      // ...and spit it out here.
+      @media #{$condition} {
+        @content;
+      }
+    }
+  }
+
+  // If the user specifies a non-exitent alias, send them a warning.
+  @if $breakpoint-found == false {
+    @warn "Oops! Breakpoint ‘#{$mq}’ does not exist.";
+  }
+}
+
+/* ==========================================================================
+   Full vh helper
+   https://gist.github.com/MarioSo/833eace64f225f66083ea689c16a526c
+   ========================================================================== */
+
+@function vh($vh) {
+  @return calc(var(--vh, 1vh) * #{$vh});
+}
+
+@mixin vh($vh, $prop: height) {
+  #{$prop}: $vh * 1vh;
+  #{$prop}: vh($vh);
+}
+
+@function tovw($size, $device) {
+  @return (($size * 100) / $device) + vw;
+}
+
+@function strip-unit($number) {
+  @if type-of($number) == 'number' and not unitless($number) {
+    @return $number / ($number * 0 + 1);
+  }
+
+  @return $number;
+}
+
+/*
+https://medium.com/codyhouse/line-height-crop-a-simple-css-formula-to-remove-top-space-from-your-text-9c3de06d7c6f
+*/
+
+@mixin lhCrop($line-height, $capital-letter: 1) {
+  &::before {
+    content: '';
+    display: block;
+    height: 0;
+    width: 0;
+    margin-top: calc((#{$capital-letter} - #{$line-height}) * 0.5em);
+  }
+}
+
+@function col($nr) {
+  // $col: tovw($colsDesktop, $desktop);
+  // $gutter: calc($desktop - ($col * 36));
+
+  $cols: ((21 * 100) / $desktop);
+  $wrap: (($wrapperDesktop * 100) / $desktop);
+  $space: ($wrap - ($cols * 36)) / 35;
+  $one: ($cols * $nr) + ($space * $nr);
+
+  @return $one + vw;
+}

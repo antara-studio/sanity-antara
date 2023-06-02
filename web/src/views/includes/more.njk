@@ -1,0 +1,39 @@
+{% macro more(link = '/', title, subtitle, text) %}
+
+  <a href="{{link}}" class="read-more">
+
+    {% if subtitle %}
+      <div class="more-subtitle p1">{{subtitle}}</div>
+    {% endif %}
+
+    {% if title %}
+      <div class="more-title t3">{{title}}</div>
+    {% endif %}
+
+    {% if text %}
+      <div class="p3" data-split="lines,lines">{{text}}</div>
+    {% else %}
+      <span class="aria" aria-hidden="true">Read more</span>
+    {% endif %}
+
+    <div class="button">
+      <div class="circle">
+        <svg class="icon-circles" viewbox="0 0 18 9" xml:space="preserve">
+          <ellipse style="fill:none;stroke:#000;stroke-width: 0.5" cx="6" cy="4.5" class="st0" rx="5.8" ry="4.2"/>
+          <ellipse style="fill:none;stroke:#000;stroke-width: 0.5" cx="12" cy="4.5" class="st0" rx="5.8" ry="4.2"/>
+        </svg>
+        <svg class="icon">
+          <use xlink:href="#more"></use>
+        </svg>
+      </div>
+      <div class="arrow">
+        <svg class="arrow-under">
+          <use xlink:href="#arrow-right"></use>
+        </svg>
+
+        <svg class="arrow-over" viewbox="0 0 78 16" xml:space="preserve"><path class="arrow-line" style="stroke-width:1.5;fill:none;stroke:#000;" d="M0 8h77"/><path class="arrow-linel" style="stroke-width:1.5;fill:none;stroke:#000;" d="M68 15s-.3-6.8 9-7"/><path class="arrow-liner" style="stroke-width:1.5;fill:none;stroke:#000;" d="M68 1s-.3 6.8 9 7"/></svg>
+      </div>
+    </div>
+  </a>
+
+{% endmacro %}

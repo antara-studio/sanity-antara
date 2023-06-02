@@ -1,0 +1,7 @@
+.single {
+  .process {
+    @include media-query('b-m-up') {
+      padding-left: col(17);
+    }
+  }
+}

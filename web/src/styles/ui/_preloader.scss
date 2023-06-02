@@ -1,0 +1,31 @@
+.preloader {
+  background: $black;
+  height: 100vh;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 10;
+
+  .preload-logo {
+    height: 8rem;
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 8rem;
+  }
+
+  .p-mask {
+    &:nth-child(2) {
+      clip-path: url(#clipPath1);
+    }
+
+    &:nth-child(3) {
+      clip-path: url(#clipPath2);
+    }
+    &:nth-child(4) {
+      clip-path: url(#clipPath3);
+    }
+  }
+}

@@ -1,0 +1,26 @@
+---
+layout: base.njk
+title: Contact
+---
+
+{% set post = data.contact %}
+{% set title = post.mainTitle %}
+{% set featured = post.featured %}
+{% set split = post.split %}
+{% import "split.njk" as component %}
+
+<div class="page is-contact" data-router-view="page" data-smooth="data-smooth">
+
+  {% include 'header.njk' %}
+
+  {% include 'hero.njk' %}
+
+  {% include 'featured.njk' %}
+
+  {{ component.split(context=split, page='contact') }}
+
+  {% include 'footer.njk' %}
+
+  <canvas class="canvas"></canvas>
+
+</div>

@@ -1,0 +1,39 @@
+.services {
+  margin-bottom: $m100;
+
+  @include media-query('b-l-up') {
+    margin-bottom: $m200;
+  }
+
+  .services-list {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .services-item {
+    margin-bottom: $m40;
+    margin-right: col(6);
+
+    @include media-query('b-m-up') {
+      margin-bottom: 0;
+    }
+
+    @include media-query('b-l-up') {
+      margin-right: col(6);
+    }
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  .list-item {
+    overflow: hidden;
+  }
+
+  .p1 {
+    font-weight: $medium;
+    margin-bottom: $m20;
+    text-transform: uppercase;
+  }
+}

@@ -1,0 +1,21 @@
+/* ==========================================================================
+   Load Fontface
+   ========================================================================== */
+
+@font-face {
+  font-family: 'HKGrotestk';
+  src: url('../assets/fonts/hkgrotesk-regular.woff2') format('woff2'),
+    url('../assets/fonts/hkgrotesk-regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'RecifeDisplay';
+  src: url('../assets/fonts/recifedisplay-light.woff2') format('woff2'),
+    url('../assets/fonts/recifedisplay-light.woff') format('woff');
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}

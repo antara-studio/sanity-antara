@@ -1,0 +1,24 @@
+/* ==========================================================================
+   Grid reference
+   ========================================================================== */
+
+.grid {
+  background: rgba(252, 124, 124, 0.1);
+  display: flex;
+  height: 100%;
+  left: 50%;
+  justify-content: space-between;
+  opacity: 0.2;
+  position: fixed;
+  pointer-events: none;
+  top: 0;
+  transform: translateX(-50%);
+  user-select: none;
+  width: tovw(1400, $desktop);
+  z-index: 1;
+  .col {
+    background: rgba(252, 124, 124, 0.5);
+    height: 100%;
+    width: tovw(21, $desktop);
+  }
+}

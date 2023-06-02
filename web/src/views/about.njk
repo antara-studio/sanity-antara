@@ -1,0 +1,30 @@
+---
+layout: base.njk
+title: About
+---
+
+{% set post = data.about %}
+{% set title = post.mainTitle %}
+{% set featured = post.featured %}
+{% set split = post.split %}
+{% set split_2 = post.split_2 %}
+{% set press = post.press %}
+{% import "split.njk" as component %}
+
+<div class="page is-about" data-router-view="page" data-smooth="data-smooth" data-color="{{post.color.hex}}">
+  {% include 'header.njk' %}
+
+  {% include 'hero.njk' %}
+
+  {% include 'featured.njk' %}
+
+  {{ component.split(context=split, page='about') }}
+
+  {% include 'press.njk' %}
+
+  {{ component.split(context=split_2, page='about') }}
+
+  {% include 'footer.njk' %}
+
+  <canvas class="canvas"></canvas>
+</div>

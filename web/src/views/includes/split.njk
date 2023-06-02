@@ -1,0 +1,51 @@
+{% import "more.njk" as link %}
+
+{% macro split(context, page) %}
+
+  <section class="split s {% if context.reversed %}-reverse{% endif %}" data-section="split" data-smooth-item="data-smooth-item">
+    <div class="split-content">
+
+      <div class="split-col">
+
+        <h2 class="split-title t2 {% if page=='about' and context.subtitle %}-m0{% endif %} " data-split="words">{{context.title}}</h2>
+        {% if context.subtitle %}
+          <span class="p1 split-subtitle">{{context.subtitle}}</span>
+        {% endif %}
+
+        {% for item in context.richText %}
+          <p class="p" data-split="lines,lines">{{item.children[0].text}}</p>
+        {% endfor %}
+
+        {% if context.pageLink.link %}
+
+          {{ link.more(link = context.pageLink.link, context.pageLink.title, context.pageLink.subtitle, context.pageLink.text) }}
+
+        {% endif %}
+
+      </div>
+
+      {% if context.reversed %}
+
+        <div class="split-col grid-img">
+          <img class="img-l" src="{{context.image[0].asset.url }}" alt="{{context.image[0].alt}}" data-smooth-item="data-smooth-item" data-speed="1.15">
+          <img class="img-s" src="{{context.image[1].asset.url }}" alt="{{context.image[1].alt}}" data-smooth-item="data-smooth-item" data-speed="1.25">
+        </div>
+
+      {% else %}
+        <div class="split-col">
+
+          <div class="split-clip">
+            <svg class="icon border">
+              <use xlink:href="#border"></use>
+            </svg>
+
+            <img class="full" src="{{context.image[0].asset.url }}" alt="{{context.image[0].alt}}">
+          </div>
+
+        </div>
+      {% endif %}
+
+    </div>
+  </section>
+
+{% endmacro %}

@@ -1,0 +1,30 @@
+---
+layout: base.njk
+title: Home
+---
+
+{% set post = data.home %}
+{% set title = post.mainTitle %}
+{% set featured = post.featured %}
+{% set split = post.split %}
+{% set projects = post.featuredProjects %}
+
+{% import "works.njk" as workcomp %}
+{% import "split.njk" as splitcomp %}
+
+<div class="page is-home" data-router-view="page" data-smooth="data-smooth">
+
+  {% include 'header.njk' %}
+
+  {% include 'hero.njk' %}
+
+  {% include 'featured.njk' %}
+
+  {{ workcomp.works(context=projects) }}
+
+  {{ splitcomp.split(context=split, page='home') }}
+
+  {% include 'footer.njk' %}
+
+  <canvas class="canvas"></canvas>
+</div>

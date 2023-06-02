@@ -1,0 +1,28 @@
+<section class="process s" data-smooth-item="data-smooth-item">
+
+  <h2 class="t-line p">Our Process</h2>
+
+  <div class="processes">
+
+    <ul class="process-list">
+
+      {% for item in process.ourprocess %}
+        <li class="process-item" data-element="process">
+          <div class="process-nr t1">0{{loop.index}}</div>
+          <div class="process-title t3">{{item.title}}</div>
+          {# <p class="p">{{item.description}}</p> #}
+          {% for text in item.description %}
+            <p class="p">{{text.children[0].text}}</p>
+          {% endfor %}
+        </li>
+      {% endfor %}
+
+      <svg class="icon-circles" viewbox="0 0 18 9" xml:space="preserve">
+        <ellipse style="fill:none;stroke:#000;stroke-width: 0.15" cx="6" cy="4.5" class="st0" rx="5.8" ry="4.2"></ellipse>
+        <ellipse style="fill:none;stroke:#000;stroke-width: 0.15" cx="12" cy="4.5" class="st0" rx="5.8" ry="4.2"></ellipse>
+      </svg>
+    </ul>
+
+  </div>
+
+</section>

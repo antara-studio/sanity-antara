@@ -1,0 +1,87 @@
+.txt {
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+}
+
+.t1 {
+  font-size: tovw($h3, $mobile);
+  font-family: $recife;
+  line-height: 1;
+  font-weight: $book;
+
+  //@include lhCrop(0.8, 1);
+
+  @include media-query('b-l-up') {
+    font-size: tovw($h1, $desktop);
+  }
+}
+
+.t2 {
+  font-size: calc((#{$h4}/ 10) * 1rem);
+  font-family: $recife;
+  font-weight: normal;
+  line-height: 1;
+
+  @include media-query('b-m-up') {
+    font-size: tovw(30, $tablet);
+  }
+
+  @include media-query('b-l-up') {
+    font-size: tovw($h2, $desktop);
+  }
+}
+
+.t3 {
+  font-family: $recife;
+  font-size: $h5;
+  font-weight: $regular;
+  line-height: 1.25;
+
+  @include media-query('b-m-up') {
+    font-size: tovw($h4, $tablet);
+  }
+
+  @include media-query('b-l-up') {
+    font-size: tovw($h4, $desktop);
+  }
+}
+
+.p {
+  font-size: $p14;
+  line-height: 1.4;
+
+  @include media-query('b-m-up') {
+    font-size: $p16;
+  }
+
+  @include media-query('b-l-up') {
+    font-size: $p18;
+  }
+}
+
+.p1 {
+  font-size: $p14;
+  line-height: 1.4;
+
+  &.-fluid {
+    font-size: tovw(18, $desktop);
+
+    @include media-query('b-l-up') {
+      font-size: tovw(14, $desktop);
+    }
+  }
+}
+
+.p2 {
+  font-size: $p10;
+  line-height: 1.2;
+}
+
+.p3 {
+  font-size: $p14;
+  line-height: 1.4;
+
+  @include media-query('b-xl-up') {
+    font-size: $p18;
+  }
+}

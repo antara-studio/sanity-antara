@@ -1,0 +1,22 @@
+.t-line {
+  display: inline-block;
+  font-weight: $book;
+  margin-bottom: $m40;
+  position: relative;
+
+  @include media-query('b-m-up') {
+    margin-bottom: $m100;
+    padding-left: col(6);
+  }
+
+  &::after {
+    content: '';
+    background: $grey;
+    height: 1px;
+    position: absolute;
+    top: 60%;
+    right: 0;
+    transform: translateX(calc(100% + 4rem));
+    width: col(3);
+  }
+}

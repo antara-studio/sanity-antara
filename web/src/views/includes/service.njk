@@ -1,0 +1,39 @@
+<section class="services s" data-section="services" data-smooth-item="data-smooth-item">
+
+  <h2 class="t-line p">Services</h2>
+
+  <div class="services-list">
+    <div class="brand services-item">
+      <p class="p1">Brand</p>
+      <ul class="brand-list">
+        {% for brand in service.brand %}
+          <li class="list-item">
+            <p class="p">{{brand}}</p>
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+
+    <div class="design services-item">
+      <p class="p1">Design</p>
+      <ul class="design-list">
+        {% for design in service.design %}
+          <li class="list-item">
+            <p class="p">{{design}}</p>
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+
+    <div class="content services-item">
+      <p class="p1">Content</p>
+      <ul class="content-list">
+        {% for content in service.content %}
+          <li class="list-item">
+            <p class="p">{{content}}</p>
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,266 @@
+.is-device {
+  .hero {
+    .light {
+      display: none;
+      @include media-query('b-l-up') {
+        display: none;
+      }
+    }
+  }
+}
+
+.hero {
+  position: relative;
+  margin-bottom: $m100;
+
+  @include media-query('b-l-up') {
+    margin-bottom: $m200;
+  }
+
+  h1 {
+    @extend .t1;
+    clip: rect(1px, 0px, 0px, 0px);
+    position: absolute;
+    top: 0;
+  }
+
+  .light {
+    display: none;
+    background-size: contain;
+    background-position: center;
+    position: absolute;
+  }
+
+  .light-1 {
+    height: tovw(1057, $desktop);
+    right: 0;
+    width: tovw(1057, $desktop);
+  }
+
+  .light-2 {
+    left: 0;
+    height: tovw(774, $desktop);
+    top: tovw(-200, $desktop);
+    width: tovw(774, $desktop);
+  }
+
+  .hero-title {
+    position: relative;
+
+    @include media-query('b-l-up') {
+      padding-left: col(6);
+      padding-right: col(1);
+    }
+  }
+
+  .t-item {
+    position: relative;
+  }
+
+  .p1 {
+    font-family: $font-family;
+    width: 60%;
+
+    @include media-query('b-m-up') {
+      width: 26rem;
+      position: absolute;
+    }
+  }
+
+  .line-1 {
+    overflow: hidden;
+  }
+}
+
+.is-home {
+  .hero-title {
+    .t-item {
+      &:nth-child(4) {
+        padding-left: col(7);
+        margin-bottom: $m40;
+
+        @include media-query('b-s-up') {
+          padding-left: col(10);
+        }
+
+        @include media-query('b-m-up') {
+          margin-bottom: 0;
+        }
+
+        @include media-query('b-l-up') {
+          padding-left: col(7);
+        }
+      }
+    }
+  }
+
+  .p1 {
+    &.top {
+      margin-bottom: $m20;
+      @include media-query('b-s-up') {
+        left: col(18);
+        bottom: 2.2vw;
+      }
+
+      @include media-query('b-m-up') {
+        margin-bottom: 0;
+        width: col(7);
+      }
+
+      @include media-query('b-l-up') {
+        left: col(13);
+        width: col(6);
+      }
+    }
+
+    &.bottom {
+      @include media-query('b-s-up') {
+        left: 0;
+        bottom: 2.2vw;
+      }
+
+      @include media-query('b-m-up') {
+        width: col(8);
+      }
+
+      @include media-query('b-l-up') {
+        width: col(6);
+      }
+    }
+  }
+
+  .scroll-down {
+    display: block;
+  }
+}
+
+.is-work {
+  .hero-title {
+    .t-item {
+      &:nth-child(1) {
+        padding-left: col(4);
+      }
+      &:nth-child(3) {
+        padding-left: col(2);
+        @include media-query('b-l-up') {
+          padding-left: col(5);
+        }
+      }
+      &:nth-child(4) {
+        padding-left: col(2);
+      }
+    }
+  }
+}
+
+.is-services {
+  .hero-title {
+    .t-item {
+      &:nth-child(2) {
+        padding-left: col(5);
+      }
+
+      &:nth-child(4) {
+        padding-left: col(10);
+      }
+    }
+  }
+}
+
+.is-about {
+  .hero-title {
+    .t-item {
+      &:nth-child(2) {
+        padding-left: col(2);
+      }
+
+      &:nth-child(4) {
+        padding-left: col(6);
+      }
+    }
+  }
+}
+
+.is-contact {
+  .hero-title {
+    .t-item {
+      &:nth-child(2) {
+        padding-left: col(4);
+      }
+
+      &:nth-child(4) {
+        padding-left: col(8);
+      }
+    }
+  }
+}
+
+.is-project {
+  .hero-title {
+    margin-bottom: $m100;
+  }
+
+  .t2 {
+    margin-bottom: $m10;
+
+    @include media-query('b-l-up') {
+      margin-bottom: $m20;
+    }
+  }
+
+  .p1 {
+    position: relative;
+    width: auto;
+
+    &:first-child {
+      font-weight: $bold;
+      margin-bottom: $m10;
+      text-transform: uppercase;
+    }
+  }
+
+  .hero-info {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: $m60;
+    padding-left: col(0.5);
+
+    @include media-query('b-l-up') {
+      margin-bottom: $m80;
+      padding-left: col(6);
+    }
+  }
+
+  .hero-image {
+    height: 54vw;
+    overflow: hidden;
+  }
+
+  .info-services {
+    margin-bottom: $m20;
+    text-transform: uppercase;
+    width: 100%;
+
+    @include media-query('b-l-up') {
+      margin-bottom: 0;
+      margin-right: col(2);
+      width: col(7);
+    }
+  }
+
+  .info-description {
+    width: 100%;
+
+    @include media-query('b-l-up') {
+      width: col(10);
+    }
+
+    .line-1 {
+      overflow: hidden;
+    }
+  }
+
+  .scroll-down {
+    top: 15%;
+  }
+}

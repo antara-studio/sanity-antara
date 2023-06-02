@@ -1,0 +1,272 @@
+.header {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: $m100;
+  padding-bottom: 3rem;
+  padding-top: 3rem;
+  width: 100%;
+  z-index: 2;
+
+  &.header-fixed {
+    display: none;
+    position: fixed;
+    justify-content: flex-end;
+    right: 0;
+    width: auto;
+
+    @include media-query('b-l-up') {
+      display: block;
+    }
+    .menu {
+      align-items: flex-end;
+      flex-direction: column;
+    }
+
+    .menu-item {
+      margin-right: 0;
+      overflow: hidden;
+    }
+
+    .menu-link {
+      display: block;
+      transform: translateY(101%);
+    }
+  }
+
+  .logo {
+    display: block;
+    position: relative;
+    z-index: 1;
+
+    @include media-query('b-m-up') {
+      padding-left: col(2);
+    }
+
+    .p {
+      display: none;
+    }
+  }
+
+  .icon {
+    fill: #0d0d0d;
+    height: 2rem;
+    width: 7rem;
+  }
+
+  .open-menu {
+    display: block;
+    position: relative;
+    @include media-query('b-m-up') {
+      display: none;
+    }
+
+    .menu-item {
+      pointer-events: none;
+
+      &.circle::before {
+        width: 180%;
+      }
+    }
+
+    li {
+      pointer-events: none;
+    }
+  }
+
+  .menu {
+    align-items: center;
+    display: none;
+    padding-right: col(2);
+
+    @include media-query('b-m-up') {
+      display: flex;
+    }
+  }
+
+  .menu-item {
+    margin-right: 1.6rem;
+    position: relative;
+
+    &:last-child {
+      margin-left: 2.4rem;
+      margin-right: 0;
+    }
+
+    &.circle {
+      display: block;
+      &::before {
+        content: '';
+        border: 1px solid #000;
+        left: 50%;
+        height: 2.4rem;
+        position: absolute;
+        width: 120%;
+        border-radius: 50%;
+        transform: translate(-50%, -50%);
+        pointer-events: none;
+        top: 50%;
+      }
+    }
+  }
+
+  .menu-link {
+    font-size: $p14;
+    text-transform: uppercase;
+  }
+}
+
+.mobile-menu {
+  background: #0d0d0d;
+  color: white;
+  height: 100vh;
+  left: 0;
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  visibility: hidden;
+  width: 100%;
+  z-index: 3;
+
+  @include media-query('b-m-up') {
+    display: none;
+  }
+
+  .logo {
+    .p {
+      display: none;
+    }
+  }
+
+  .icon {
+    fill: white;
+    height: 2rem;
+    width: 7rem;
+  }
+
+  .mobile-content {
+    height: 100%;
+    text-align: center;
+    overflow-y: scroll;
+    padding-left: tovw(20, $mobile);
+    padding-right: tovw(20, $mobile);
+    position: relative;
+
+    @include media-query('b-s-up') {
+      padding-left: tovw(40, $tablet);
+      padding-right: tovw(40, $tablet);
+    }
+
+    @include media-query('b-l-up') {
+      padding-left: tovw(100, $desktop);
+      padding-right: tovw(100, $desktop);
+    }
+  }
+
+  .mobile-header {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: $m80;
+    padding-top: 3rem;
+  }
+
+  .back {
+    align-items: center;
+    display: flex;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+
+    .icon {
+      margin-left: 1rem;
+      height: 2rem;
+      width: 5rem;
+    }
+
+    * {
+      pointer-events: none;
+    }
+  }
+
+  .menu {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: $m60;
+    overflow: hidden;
+  }
+
+  .menu-item {
+    line-height: 1;
+    margin-bottom: 3rem;
+    position: relative;
+
+    &:nth-child(odd) {
+      .p {
+        bottom: 0.5rem;
+        position: absolute;
+        right: -3rem;
+      }
+    }
+    &:nth-child(even) {
+      .p {
+        bottom: 0.5rem;
+        position: absolute;
+        left: -3rem;
+      }
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    &:nth-child(1) {
+      align-self: flex-end;
+      margin-right: 6rem;
+    }
+
+    &:nth-child(3) {
+      align-self: flex-start;
+    }
+
+    &:nth-child(2) {
+      .p {
+        left: -2rem;
+      }
+    }
+  }
+
+  .menu-link {
+    display: block;
+    color: white;
+    font-size: tovw(70, $mobile);
+    font-family: $recife;
+    overflow: hidden;
+
+    &.circle {
+      font-size: 3.2rem;
+      font-family: $font-family;
+      text-transform: uppercase;
+      position: relative;
+      margin-bottom: $m80;
+      overflow: visible;
+      &::before {
+        content: '';
+        border: 1px solid white;
+        left: 50%;
+        height: 4.2rem;
+        position: absolute;
+        width: 100%;
+        border-radius: 50%;
+        transform: translate(-50%, -50%);
+        pointer-events: none;
+        top: 50%;
+      }
+    }
+
+    span {
+      display: block;
+      position: relative;
+    }
+  }
+}

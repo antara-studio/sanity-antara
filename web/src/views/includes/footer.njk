@@ -1,0 +1,70 @@
+<footer class="s" data-section="footer" data-smooth-item="data-smooth-item">
+
+  <div class="footer-content">
+
+    <div class="footer-location">
+      <p class="p">BASED IN GUATEMALA, WORKING WORLDWIDE</p>
+      <p class="p">GT LOCAL TIME:
+        <span></span></p>
+    </div>
+
+    <div class="footer-links">
+      <div class="footer-sitemap">
+        <p class="p1 sitemap-title">Sitemap</p>
+        <ul class="sitemap-list">
+          <li>
+            <a href="/" class="p1">Home</a>
+          </li>
+          <li>
+            <a href="/about" class="p1">About</a>
+          </li>
+          <li>
+            <a href="/work" class="p1">Work</a>
+          </li>
+        </ul>
+        <ul class="sitemap-list">
+          <li>
+            <a href="/services" class="p1">Services</a>
+          </li>
+          <li>
+            <a href="/contact" class="p1">Contact</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="footer-social">
+        <p class="p1 social-title">Social</p>
+        <ul class="social-list">
+          {% for social in data.config.social.social %}
+            {% if loop.index0 < 3 %}
+              <li>
+                <a href="{{social.url}}" class="p1" target="_blank" rel="noreferrer">{{social.name}}</a>
+              </li>
+            {% endif %}
+          {% endfor %}
+        </ul>
+
+        <ul class="social-list">
+          {% for social in data.config.social.social %}
+            {% if loop.index0 > 2 %}
+              <li>
+                <a href="{{social.url}}" class="p1" target="_blank" rel="noreferrer">{{social.name}}</a>
+              </li>
+            {% endif %}
+          {% endfor %}
+        </ul>
+      </div>
+
+    </div>
+
+    <a href="mailto:{{data.config.info.email}}" class="footer-contact">
+      <p class="t1" data-split="lines,words">Get in touch</p>
+      <span class="line"></span>
+    </a>
+
+    <div class="copyright">
+      <p>© Antara Studio 2021</p>
+    </div>
+
+  </div>
+</footer>

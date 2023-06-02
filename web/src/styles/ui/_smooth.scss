@@ -1,0 +1,17 @@
+[data-smooth] {
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+.is-device {
+  [data-smooth] {
+    position: relative;
+  }
+}
+
+.is-smooth {
+  overflow: hidden;
+}

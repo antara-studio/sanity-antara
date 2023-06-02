@@ -1,0 +1,102 @@
+/* ==========================================================================
+   Settings
+   ========================================================================== */
+
+/* Fonts
+   ========================================================================== */
+$font-family: 'HKGrotestk', monospace;
+$recife: 'RecifeDisplay';
+$font-size: 10px;
+
+$book: 300;
+$regular: 400;
+$medium: 500;
+$semibold: 600;
+$bold: 700;
+$extrabold: 800;
+
+/* Colors
+   ========================================================================== */
+$black: #212121;
+$grey: #979797;
+$white: #f5f5f5;
+
+/* Headings
+   ========================================================================== */
+$h1: 152;
+$h2: 60;
+$h3: 48;
+$h4: 30;
+$h5: 1.8rem;
+
+$p10: 1rem;
+$p14: 1.4rem;
+$p16: 1.6rem;
+$p18: 1.8rem;
+$p30: 3rem;
+
+/* Grid
+   ========================================================================== */
+
+$wrapperDesktop: 1400;
+$colsDesktop: 36;
+$colDesktop: 21;
+$gutterDesktop: 20;
+
+$colsMobile: 6;
+$colMobile: 42;
+$gutterMobile: 20;
+
+/* Margings
+   ========================================================================== */
+$m200: 20rem;
+$m140: 14rem;
+$m120: 12rem;
+$m100: 10rem;
+$m80: 8rem;
+$m60: 6rem;
+$m40: 4rem;
+$m30: 3rem;
+$m20: 2rem;
+$m10: 1rem;
+
+/* Widths
+   ========================================================================== */
+$b_xs_start: 320px;
+$b_xs_end: 500px;
+$b_s_start: 501px;
+$b_s_end: 749px;
+$b_m_start: 750px;
+$b_m_end: 1023px;
+$b_l_start: 1024px;
+$b_xl_start: 1280px;
+$b_xxl_start: 1440px;
+$b_xxxl_start: 1600px;
+
+/* Breakpoints
+   ========================================================================== */
+$breakpoints: (
+  'b-xs' 'screen and (max-width: #{$b_xs_end})',
+  'b-s' 'screen and (max-width: #{$b_s_end})',
+  'b-s-up' 'screen and (min-width: #{$b_s_start})',
+  'b-m' 'screen and (max-width: #{$b_m_end})',
+  'b-m-up' 'screen and (min-width: #{$b_m_start})',
+  'b-l-up' 'screen and (min-width: #{$b_l_start})',
+  'b-xl-up' 'screen and (min-width: #{$b_xl_start})',
+  'b-xxl-up' 'screen and (min-width: #{$b_xxl_start})',
+  'b-xxxl-up' 'screen and (min-width: #{$b_xxxl_start})',
+  'retina'
+    '(-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx)'
+);
+
+/* Transitions
+   ========================================================================== */
+$speed: 0.6s;
+$slow-speed: ($speed * 2);
+$easing: cubic-bezier(0.4, 0, 0.2, 1);
+
+/* Design
+   ========================================================================== */
+$desktop: 1600;
+$tablet: 720;
+$mobile: 375;

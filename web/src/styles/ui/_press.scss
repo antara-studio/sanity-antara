@@ -1,0 +1,89 @@
+.press {
+  margin-bottom: $m100;
+
+  @include media-query('b-l-up') {
+    margin-bottom: $m200;
+  }
+
+  .press-list {
+    @include media-query('b-l-up') {
+      padding-left: col(2);
+      padding-right: col(2);
+    }
+  }
+
+  .press-item {
+    align-items: center;
+    cursor: default;
+    display: flex;
+    margin-bottom: $m40;
+    justify-content: space-between;
+    position: relative;
+    padding: 2rem 0;
+
+    &::after {
+      content: '';
+      bottom: 0;
+      background: black;
+      height: 1px;
+      position: absolute;
+      transform: scaleX(0);
+      transition: transform 0.5s ease;
+      transform-origin: right;
+      width: 100%;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    &.in-view {
+      &::after {
+        transform: scaleX(1);
+      }
+    }
+
+    &:hover {
+      @include media-query('b-l-up') {
+        .press-icon {
+          opacity: 1;
+        }
+      }
+    }
+  }
+
+  .press-nr {
+    margin-right: 3rem;
+  }
+
+  .press-info {
+    align-items: center;
+    display: flex;
+  }
+
+  .press-icon {
+    position: absolute;
+    width: 52rem;
+    height: 28rem;
+    right: 16rem;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    animation: pressLogos 8s linear alternate infinite;
+    transition: opacity 0.5s ease;
+    opacity: 0;
+    z-index: 1;
+  }
+}
+
+@keyframes pressLogos {
+  0% {
+    transform: perspective(1200px) rotateX(20deg) rotateY(20deg) skewX(3deg)
+      skewY(3deg) scale3d(1, 1, 1);
+  }
+
+  100% {
+    transform: perspective(1200px) rotateX(-20deg) rotateY(-20deg) skewX(-3deg)
+      skewY(-3deg) scale3d(1, 1, 1);
+  }
+}

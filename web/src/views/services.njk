@@ -1,0 +1,28 @@
+---
+layout: base.njk
+title: Services
+---
+
+{% set post = data.services %}
+{% set title = post.mainTitle %}
+{% set featured = post.featured %}
+{% set service = post.services %}
+{% set process = post.process %}
+
+<div class="page is-services" data-router-view="page" data-smooth="data-smooth" data-color="{{post.color.hex}}">
+
+  {% include 'header.njk' %}
+
+  {% include 'hero.njk' %}
+
+  {% include 'featured.njk' %}
+
+  {% include 'service.njk' %}
+
+  {% include 'process.njk' %}
+
+  {% include 'footer.njk' %}
+
+  <canvas class="canvas"></canvas>
+
+</div>

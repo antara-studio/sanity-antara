@@ -1,0 +1,37 @@
+.grid-img {
+  display: flex;
+  height: 70vw;
+  position: relative;
+
+  @include media-query('b-m-up') {
+    height: auto;
+  }
+
+  .img-l {
+    height: 100%;
+    object-fit: cover;
+    width: 100%;
+
+    @include media-query('b-m-up') {
+      padding-right: col(3);
+    }
+  }
+
+  .img-s {
+    bottom: 0;
+    display: none;
+    position: absolute;
+    right: 0;
+
+    width: 50%;
+
+    @include media-query('b-m-up') {
+      transform: translateY(4rem);
+      display: block;
+    }
+
+    @include media-query('b-l-up') {
+      transform: translateY(7rem);
+    }
+  }
+}

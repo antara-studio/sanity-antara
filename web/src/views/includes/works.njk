@@ -1,0 +1,74 @@
+{% macro works(context) %}
+
+  <section class="works {% if context.style %}-grid{% else %}-type{% endif %} s" data-section="works" data-smooth-item="data-smooth-item">
+
+    <div class="works-header">
+      <h2 class="work-title">
+        <span class="p" data-split="chars">Selected work</span>
+        <span class="line"></span>
+        <span class="p" data-split="chars">Projects</span>
+      </h2>
+
+    </div>
+
+    <ul class="works-list ">
+
+      {% if context.style %}
+
+        {% for project in context.projects %}
+
+          {% if loop.index < 10 %}
+            {% set index = '0' + loop.index %}
+          {% else %}
+            {% set index = loop.index %}
+          {% endif %}
+
+          <li class="work-item {% if loop.index % 2 == 0 %}-reversed{% endif %}" data-project="{{loop.index}}" data-element="workblock">
+            <a href="/work/{{project.slug.current}}" class="work-link">
+              <div class="work-l-img">
+                <img class="fullc" src="{{project.image_l.image.asset.url}}" alt="{{project.image_l.alt}}">
+              </div>
+              <div class="work-content">
+                <div class="work-info">
+                  <span class="p2">{{index}}-0{{context.projects | length}}</span>
+                  <p class="p1">{{project.title}}</p>
+                  <h3 class="t3">{{project.client}}</h3>
+                </div>
+                <div class="work-s-img">
+                  <img class="fullc" src="{{project.image_s.image.asset.url}}" alt="{{project.image_s.alt}}">
+                </div>
+              </div>
+            </a>
+          </li>
+
+        {% endfor %}
+
+      {%  else %}
+
+        {% for project in context.projects %}
+
+          {% if loop.index < 10 %}
+            {% set index = '0' + loop.index %}
+          {% else %}
+            {% set index = loop.index %}
+          {% endif %}
+
+          {# // pd is the amount of padding that has to the left
+          // given in col() #}
+
+          <li class="work-item {{project.position}}" data-preload="{{project.image_l.image.asset.url}}" data-element="works" data-color="{{project.color.hex}}">
+            <a href="/work/{{project.slug.current}}" class="work-link">
+              <div class="work-nr p">{{index}}.</div>
+              <div class="work-name t1" data-split="words">{{project.title}}</div>
+            </a>
+          </li>
+
+        {% endfor %}
+
+      {% endif %}
+
+    </ul>
+
+  </section>
+
+{% endmacro %}

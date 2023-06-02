@@ -1,0 +1,25 @@
+{% import "more.njk" as link %}
+
+{% set url = featured.pageLink %}
+
+<section class="featured s" data-section="featured" data-smooth-item="data-smooth-item">
+
+  <h2 class="featured-title t2">{{featured.title}}</h2>
+
+  {% if featured.textblock %}
+    <div class="featured-content">
+
+      <p class="p" data-split="lines, lines">{{featured.textblock.text_left}}</p>
+      <p class="p" data-split="lines, lines">{{featured.textblock.text_right}}</p>
+
+    </div>
+
+  {% endif %}
+
+  {% if url.link %}
+
+    {{ link.more(link = url.link, title=url.title, subtitle=url.subtitle ) }}
+
+  {% endif %}
+
+</section>

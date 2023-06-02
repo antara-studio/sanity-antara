@@ -1,0 +1,152 @@
+---
+layout: base.njk
+pagination:
+  data: data.pagination
+  size: 1
+  alias: project
+permalink: "work/{{ project.slug.current }}/"
+---
+
+<div class="single is-project is-{{project.slug.current}}" data-router-view="single" data-smooth="data-smooth" data-color="{{project.color.hex}}">
+
+  {% include 'header.njk' %}
+
+  <section class="hero s" data-smooth-item="data-smooth-item">
+
+    <h1 class="hero-title t1">
+      <div class="t-item">
+        <div class="t-mask" data-split="words">{{ project.title}}</div>
+      </div>
+    </h1>
+
+    <div class="hero-info">
+
+      <div class="info-services">
+        <p class="p1 p-title">Services</p>
+        <p class="p1" data-split="lines,words">
+          {{project.categories}}
+        </p>
+      </div>
+
+      <div class="info-description">
+        <p class="p1 p-title">Description</p>
+        <p class="p" data-split="lines,lines">{{project.description}}</p>
+      </div>
+    </div>
+
+    <div class="hero-image">
+      <img src="{{project.image_l.image.asset.url}}" alt="{{project.image_l.alt}}" class="fullh">
+    </div>
+
+    <div class="scroll-down">
+      <div class="scroll-circle">
+        {% include 'scrollSVG.njk' %}
+      </div>
+
+      <div class="scroll-arrow">
+        <svg viewbox="0 0 63 305">
+          <path class="arrow-line" style="fill:none;stroke:#000000;stroke-width:1.5;" d="M31,0v130"/>
+          <path class="arrow-left" style="fill:none;stroke:#000000;stroke-width:1.5;" d="M1,99c0,0,29-1,30,35"/>
+          <path class="arrow-right" style="fill:none;stroke:#000000;stroke-width:1.5;" d="M61,99c0,0-29-1-30,35"/>
+        </svg>
+      </div>
+    </div>
+
+  </section>
+
+  <section class="process s" data-smooth-item="data-smooth-item">
+
+    <h2 class="t2"></h2>
+
+    {% for text in project.process %}
+      <p class="p">{{text.children[0].text}}</p>
+    {%endfor %}
+  </section>
+
+  <section class="gallery s" data-smooth-item="data-smooth-item">
+
+    <div class="gallery-content">
+
+      {% for item in project.gallery %}
+
+        {% set left = item.galleryleft | length %}
+        {% set right = item.galleryright | length %}
+        {% set full = item.image | length %}
+        {% set video = item.vimeo | length %}
+
+        {% if left > 0 or right > 0 %}
+
+          <div class="gallery-two-col">
+
+            <div class="col-left">
+              {% for image in item.galleryleft %}
+                <img src="{{image.asset.url}}" alt="" class="full" data-element="gallery">
+              {% endfor %}
+            </div>
+
+            <div class="col-right">
+              {% for image in item.galleryright %}
+                <img src="{{image.asset.url}}" alt="" class="full" data-element="gallery">
+              {% endfor %}
+            </div>
+
+          </div>
+        {% endif %}
+
+        {% if full > 0 %}
+          <div class="gallery-one-col">
+            <img src="{{item.image.asset.url}}" alt="" class="full" data-element="gallery">
+          </div>
+        {% endif %}
+
+        {% if video > 0 %}
+          <div class="gallery-one-col">
+           
+            <video src="{{item.vimeo}}" class="full" autoplay playsinline muted loop></video>
+          </div>
+        {% endif %}
+
+      {% endfor %}
+
+    </div>
+
+  </section>
+
+  <section class="pagination s" data-smooth-item="data-smooth-item">
+
+    {% set c = project.pagination.current %}
+    {% set total = project.pagination.total %}
+    {% set p = data.pagination %}
+    {% set next = p[c + 1] if p[c + 1] else 
+      p[0] %}
+    {% set prev = p[c - 1] if p[c - 1] else p[total - 1] %}
+
+    {% set nr = c + 1 %}
+
+    {% if nr > total - 1 %}
+      {% set n = 1 %}
+    {% else %}
+      {% set n = nr + 1 %}
+    {% endif %}
+
+    {% if nr == 1 %}
+      {% set p = total %}
+      {% else%}
+      {% set p = nr - 1 %}
+    {% endif %}
+
+    <a href="/work/{{next.slug.current}}" class="pagination-link" data-element="pagination">
+      <div class="p">0{{n}}.</div>
+      <div class="t1" data-split="words">Next Project</div>
+    </a>
+    <a href="/work/{{prev.slug.current}}" class="pagination-link" data-element="pagination">
+      <div class="p">0{{p}}.</div>
+      <div class="t1" data-split="words">Prev Project</div>
+    </a>
+  </section>
+
+  {% include 'footer.njk' %}
+
+  <canvas class="canvas"></canvas>
+
+</div>

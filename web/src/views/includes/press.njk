@@ -1,0 +1,18 @@
+<section class="press s" data-smooth-item="data-smooth-item">
+
+  <h2 class="t-line p">Featured On</h2>
+
+  <ul class="press-list">
+    {% for item in press.presslist %}
+      <li class="press-item" data-element="press">
+        <div class="press-info">
+          <div class="press-nr p">0{{loop.index}}.</div>
+          <div class="press-media t3">{{item.media}}</div>
+        </div>
+
+        <div class="press-year p">{{item.year}}</div>
+        <div class="press-icon" style="background-image: url({{item.logo.asset.url}})"></div>
+      </li>
+    {% endfor %}
+  </ul>
+</section>

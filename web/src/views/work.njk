@@ -1,0 +1,24 @@
+---
+layout: base.njk
+title: Work
+---
+
+{% set post = data.work %}
+{% set title = post.mainTitle %}
+{% set projects = post.featuredProjects %}
+
+{% import "works.njk" as workcomp %}
+
+<div class="page is-work" data-router-view="page" data-smooth="data-smooth" data-color="{{post.color.hex}}">
+
+  {% include 'header.njk' %}
+
+  {% include 'hero.njk' %}
+
+  {{ workcomp.works(context=projects) }}
+
+  {% include 'footer.njk' %}
+
+  <canvas class="canvas"></canvas>
+
+</div>
