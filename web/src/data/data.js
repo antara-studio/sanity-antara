@@ -10,6 +10,9 @@ const groq = require('groq')
 module.exports = async function() {
   const permalinks = []
 
+  const date = new Date()
+  const year = date.getFullYear()
+
   const config = await client.fetch(groq`*[_type == 'config'][0]{
    info,
    seo {
@@ -23,6 +26,9 @@ module.exports = async function() {
    social
 
   }`)
+
+  config.year = year
+
   const home = await client.fetch(groq`*[_type == 'home'][0]{
     mainTitle,
     featured,
